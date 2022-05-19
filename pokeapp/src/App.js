@@ -1,34 +1,48 @@
 import "./App.css";
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-//
-// import { fetchData } from "./components/functions/Fetchdata";
-
 import PokemonList from "./components/PokemonList";
+import Button from "./components/Buttons";
+// import Spinner from "./components/Spinner";
 
 function App() {
   const [info, setInfo] = useState([]);
-  const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
-  const MORE_URL = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20";
+  // const [loading, setLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
+
+  const BASE_URL =
+    "https://pokeapi.co/api/v2/pokemon/?offset=" + offset + "&limit=20";
 
   const fetchData = (url) => {
     axios.get(url).then((response) => {
       const data = response.data;
-      console.log("TOTAL DATA", data);
       setInfo(data.results);
+      // setLoading(false);
     });
   };
 
-  useEffect(() => fetchData(BASE_URL), []);
+  function More() {
+    setOffset(offset + 20);
+  }
 
-  // hacer andar
-  //   useEffect(() => setInfo(fetchData(BASE_URL)), []);
+  function Back() {
+    setOffset(offset - 20);
+  }
+
+  useEffect(() => {
+    fetchData(BASE_URL);
+  }, [BASE_URL]);
+
+  // if (loading) return <Spinner />;
+
   return (
     <>
-      <h1>Pokeapp</h1>
+      <h1 className="title">Pokeapp</h1>
       <PokemonList data={info} />
-      {/* al apretar el boton fetchdatear con MORE_URL: tiene parametros programables - > offset=20&limit=20 */}
-      <button>mas</button>
+      <div className="buttons">
+        {offset !== 0 ? <Button msg="Menos" handle={Back} /> : null}
+        <Button msg="Mas" handle={More} />
+      </div>
     </>
   );
 }

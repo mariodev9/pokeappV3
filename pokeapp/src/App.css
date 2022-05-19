@@ -1,7 +1,15 @@
-/* body {
-  background-color: aqua;
-} */
 
-.App {
+
+.title {
+  margin: 70px 0px;
   text-align: center;
+}
+
+.buttons{
+  margin: 50px 0px;
+  text-align: center;
+}
+
+.button {
+  margin: 0px 20px;
 }

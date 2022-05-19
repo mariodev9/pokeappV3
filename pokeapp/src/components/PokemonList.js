@@ -1,19 +1,15 @@
-import { React, useState, useEffect } from "react";
 import "../assets/scss/PokemonList.scss";
 import ItemPokemon from "./ItemPokemon";
+import { Container, Row } from "reactstrap";
 
 export default function PokemonList({ data }) {
-  //   const [results, setResults] = useState([]);
-
-  //   useEffect(() => setResults(data), []);
-  console.log(data, "EL ARRAY");
   return (
-    <div className="pokemon-list">
-      <ul>
+    <Container className="pokemon-list">
+      <Row className="row-pokemon">
         {data.map((item) => (
-          <ItemPokemon key={item.name} name={item.name} url={item.url} />
+          <ItemPokemon key={item.name} url={item.url} />
         ))}
-      </ul>
-    </div>
+      </Row>
+    </Container>
   );
 }

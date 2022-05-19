@@ -1,7 +1,9 @@
-h1 {
-    text-align: center;
-}
 
 .pokemon-list {
-    border: solid black 2px;
+
+    .row-pokemon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

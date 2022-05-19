@@ -1,9 +1,8 @@
 import axios from "axios";
-
-export const fetchData = (url) => {
+// refactorizar para hacer de una funcion
+export const fetch = (url) => {
   axios.get(url).then((response) => {
     const data = response.data;
-    console.log("ESTO ANDA?", data);
     return data;
   });
 };
