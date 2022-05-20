@@ -10,8 +10,8 @@ import Footer from "./components/Footer";
 
 function App() {
   const [info, setInfo] = useState([]);
-  // const [loading, setLoading] = useState(true);
   const [offset, setOffset] = useState(0);
+  const [max, setMax] = useState();
 
   const BASE_URL =
     "https://pokeapi.co/api/v2/pokemon/?offset=" + offset + "&limit=20";
@@ -20,23 +20,21 @@ function App() {
     axios.get(url).then((response) => {
       const data = response.data;
       setInfo(data.results);
-      // setLoading(false);
+      setMax(data.count);
     });
   };
 
-  function More() {
-    setOffset(offset + 20);
-  }
+  // function More() {
+  //   setOffset(offset + 20);
+  // }
 
-  function Back() {
-    setOffset(offset - 20);
-  }
+  // function Back() {
+  //   setOffset(offset - 20);
+  // }
 
   useEffect(() => {
     fetchData(BASE_URL);
   }, [BASE_URL]);
-
-  // if (loading) return <Spinner />;
 
   return (
     <>
@@ -48,8 +46,12 @@ function App() {
       </p>
       <PokemonList data={info} />
       <div className="buttons">
-        {offset !== 0 ? <Button handle={Back} img={back} /> : null}
-        <Button handle={More} img={next} />
+        {offset !== 0 ? (
+          <Button handle={() => setOffset(offset - 20)} img={back} />
+        ) : null}
+        {offset >= max - 20 ? null : (
+          <Button handle={() => setOffset(offset + 20)} img={next} />
+        )}
       </div>
       <Footer />
     </>
