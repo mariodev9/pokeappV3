@@ -7,8 +7,8 @@ export const WeightIcon = (
     fill="none"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M15 13L12.1154 2.47619H9.23077C9.23077 1.65079 8.88462 0 7.5 0C6.11538 0 5.76923 1.65079 5.76923 2.47619H2.88462L0 13H15ZM6.92308 2.47619C6.92308 2.06349 7.03846 1.2381 7.5 1.2381C7.96154 1.2381 8.07692 2.06349 8.07692 2.47619H6.92308Z"
       fill="black"
     />
