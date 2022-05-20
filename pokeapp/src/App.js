@@ -3,7 +3,10 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 import PokemonList from "./components/PokemonList";
 import Button from "./components/Buttons";
-// import Spinner from "./components/Spinner";
+import logo from "./assets/statics/pokeapp-logo.png";
+import back from "./assets/statics/back.png";
+import next from "./assets/statics/next.png";
+import Footer from "./components/Footer";
 
 function App() {
   const [info, setInfo] = useState([]);
@@ -37,12 +40,18 @@ function App() {
 
   return (
     <>
-      <h1 className="title">Pokeapp</h1>
+      <div className="title">
+        <img src={logo} alt="" />
+      </div>
+      <p className="description">
+        Encuentra todos los pokemones de todas las regiones!
+      </p>
       <PokemonList data={info} />
       <div className="buttons">
-        {offset !== 0 ? <Button msg="Menos" handle={Back} /> : null}
-        <Button msg="Mas" handle={More} />
+        {offset !== 0 ? <Button handle={Back} img={back} /> : null}
+        <Button handle={More} img={next} />
       </div>
+      <Footer />
     </>
   );
 }

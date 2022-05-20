@@ -3,6 +3,7 @@ import axios from "axios";
 import "../assets/scss/ItemPokemon.scss";
 import Spinner from "./Spinner";
 import { Col } from "reactstrap";
+import { WeightIcon, HeightIcon } from "./SvgIcons";
 
 export default function ItemPokemon({ url }) {
   const [info, setInfo] = useState([]);
@@ -31,15 +32,18 @@ export default function ItemPokemon({ url }) {
           alt="pokemon"
         />
         <div className="name">
-          <p>
-            {info.name} n° {info.id}
-          </p>
+          <p>{info.name}</p>
+          <p>n° {info.id}</p>
         </div>
-        <div className="weight">
-          <p>{info.weight}</p>
-        </div>
-        <div className="height">
-          <p>{info.height}</p>
+        <div className="characteristics">
+          <div className="characteristic">
+            {WeightIcon}
+            <p>{info.weight === 10000 ? "Max" : info.weight}</p>
+          </div>
+          <div className="characteristic">
+            {HeightIcon}
+            <p>{info.height}</p>
+          </div>
         </div>
       </Col>
     </>

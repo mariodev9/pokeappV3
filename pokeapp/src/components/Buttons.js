@@ -1,10 +1,15 @@
 import React from "react";
 import "../App.css";
+import { motion } from "framer-motion";
 
-export default function Button({ msg, handle }) {
+export default function Button({ img, handle }) {
   return (
-    <button className="button" onClick={handle}>
-      {msg}
-    </button>
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      className="button"
+      onClick={handle}
+    >
+      <img src={img} alt="" />
+    </motion.button>
   );
 }

@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .item-container {
+    font: x-large  'VT323', monospace;
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -6,7 +9,35 @@
     margin: 15px 10px;
     box-shadow: 5px 5px 15px rgba(34, 34, 34, 0.326);
     background-color: rgb(255, 255, 255);
-    border: 1px solid black;
+    height: 90px;
 
+    img {
+        width: 70px;
+    }
 
+    .name {
+
+        p {
+            margin-bottom: 0;           
+        }
+    }
+
+    .characteristics {
+
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+
+        .characteristic {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            align-items: center;
+
+            p {
+                margin: 0px 5px;
+                margin-bottom: 0;
+            }
+        }
+    }
 }
