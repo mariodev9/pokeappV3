@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Button({ img, handle }) {
   return (
     <motion.button
-      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 1.2 }}
       className="button"
       onClick={handle}
     >

@@ -2,8 +2,8 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 import "../assets/scss/ItemPokemon.scss";
 import Spinner from "./Spinner";
-import { Col } from "reactstrap";
 import { WeightIcon, HeightIcon } from "./SvgIcons";
+import { motion } from "framer-motion";
 
 export default function ItemPokemon({ url }) {
   const [info, setInfo] = useState([]);
@@ -25,7 +25,12 @@ export default function ItemPokemon({ url }) {
 
   return (
     <>
-      <Col xl="4" className="item-container">
+      <motion.div
+        className="item-container col-xl-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+      >
         <img
           src={info.sprites?.front_default}
           className="pokemon-image"
@@ -45,7 +50,7 @@ export default function ItemPokemon({ url }) {
             <p>{info.height}</p>
           </div>
         </div>
-      </Col>
+      </motion.div>
     </>
   );
 }

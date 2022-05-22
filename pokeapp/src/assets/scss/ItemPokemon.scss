@@ -6,7 +6,7 @@
     justify-content: space-between; 
     align-items: center;
     border-radius: 10px;
-    margin: 15px 10px;
+    margin: 15px 15px;
     box-shadow: 5px 5px 15px rgba(34, 34, 34, 0.326);
     background-color: rgb(255, 255, 255);
     height: 90px;
@@ -29,6 +29,7 @@
         width: 30%;
 
         .characteristic {
+            width: 60%;
             display: flex;
             flex-direction: row;
             padding: 5px;
