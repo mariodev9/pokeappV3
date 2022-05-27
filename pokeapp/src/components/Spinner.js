@@ -4,7 +4,7 @@ import "../assets/scss/Spinner.scss";
 
 export default function Spinner() {
   return (
-    <Col xl="4" className="spinner-container">
+    <Col xl="5" className="spinner-container">
       <div className="spinner">
         <span className="spinner-inner-1"></span>
         <span className="spinner-inner-2"></span>

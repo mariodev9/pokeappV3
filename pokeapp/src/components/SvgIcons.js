@@ -1,7 +1,7 @@
 export const WeightIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="15"
+    width="10"
     height="13"
     viewBox="0 0 15 13"
     fill="none"
