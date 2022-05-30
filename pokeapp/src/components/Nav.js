@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import "../assets/scss/Nav.scss";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Nav() {
   const [busqueda, setBusqueda] = useState("");
@@ -12,11 +13,17 @@ export default function Nav() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/Pokemon/" + busqueda.toLowerCase());
+    if (busqueda) {
+      navigate("/Pokemon/" + busqueda.toLowerCase());
+    }
   };
 
   return (
-    <div className="nav-pokemon centrar">
+    <motion.div
+      className="nav-pokemon centrar"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <form action="submit" onSubmit={handleSubmit}>
         <input
           name="busqueda"
@@ -27,6 +34,6 @@ export default function Nav() {
         />
         <button type="submit">search</button>
       </form>
-    </div>
+    </motion.div>
   );
 }

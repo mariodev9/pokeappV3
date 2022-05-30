@@ -1,6 +1,7 @@
 import "../App.css";
 import { React, useState, useEffect } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 import PokemonList from "../components/PokemonList";
 import Button from "../components/Buttons";
 import logo from "../assets/statics/pokeapp-logo.png";

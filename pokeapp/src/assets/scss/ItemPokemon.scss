@@ -1,18 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+$grass: rgb(137, 250, 71);
+$poison: rgb(99, 41, 126);
+$fire: rgb(254, 92, 5);
+$flying:rgb(194, 255, 254);
+$bug: rgb(181, 251, 141);
+$water: rgb(45, 100, 253);
+$ground: rgb(128, 83, 28);
+$normal: rgb(217, 217, 217);
+$fairy: rgb(249, 170, 255);
+$fighting: rgb(105, 20, 20);
+$rock: rgb(63, 63, 63);
+$steel: rgb(160, 160, 160);
+$electric: rgb(241, 233, 2);  
+$ghost: rgb(16, 16, 16);
+$ice: rgb(79, 211, 255);
+$psychic: rgb(177, 40, 182);
+$dark:rgb(41, 41, 41);
 
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .fila {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-}
+  }
 
 h3, p, button {
     font: x-large  'VT323', monospace;
-}
-  
+}  
 
+.home-icon {
+    margin: 0px 10px 5px;
+}
 
 .item-container {
 
@@ -112,23 +130,6 @@ h3, p, button {
 
 .types {
 
-    $grass: rgb(137, 250, 71);
-    $poison: rgb(99, 41, 126);
-    $fire: rgb(254, 92, 5);
-    $flying:rgb(194, 255, 254);
-    $bug: rgb(181, 251, 141);
-    $water: rgb(45, 100, 253);
-    $ground: rgb(128, 83, 28);
-    $normal: rgb(217, 217, 217);
-    $fairy: rgb(249, 170, 255);
-    $fighting: rgb(105, 20, 20);
-    $rock: rgb(63, 63, 63);
-    $steel: rgb(160, 160, 160);
-    $electric: rgb(241, 233, 2);  
-    $ghost: rgb(16, 16, 16);
-    $ice: rgb(79, 211, 255);
-    $psychic: rgb(177, 40, 182);
-    $dark:rgb(41, 41, 41);
 
     padding: 30px 15px;
     margin: 30px 0px;
@@ -236,6 +237,7 @@ h3, p, button {
     }
 
     img {
+        height: 400px;
         margin-top: 30px;
     }
 }

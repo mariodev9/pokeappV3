@@ -2,21 +2,19 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Description(props) {
-  const [info, setInfo] = useState({});
+  const { species } = props;
   const [description, setDescription] = useState("");
 
   const [loading, setLoading] = useState(true);
 
-  const URL = `https://pokeapi.co/api/v2/pokemon-species/${props.id}/`;
+  const URL = `https://pokeapi.co/api/v2/pokemon-species/${species}/`;
 
   const fetchDescription = (url) => {
     axios.get(url).then((response) => {
       const data = response.data;
-
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < data.flavor_text_entries.length; i++) {
         if (data.flavor_text_entries[i].language.name === "en") {
           setDescription(data.flavor_text_entries[i].flavor_text);
-          i = 4;
         }
       }
     });
@@ -25,7 +23,7 @@ export default function Description(props) {
 
   useEffect(() => {
     fetchDescription(URL);
-  }, []);
+  }, [URL]);
 
   return (
     <>
