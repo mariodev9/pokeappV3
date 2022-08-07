@@ -1,7 +1,6 @@
 import "../App.css";
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
 import PokemonList from "../components/PokemonList";
 import Button from "../components/Buttons";
 import logo from "../assets/statics/pokeapp-logo.png";
@@ -25,14 +24,6 @@ export default function Home() {
       setMax(data.count);
     });
   };
-
-  //   function More() {
-  //     setOffset(offset + 20);
-  //   }
-
-  //   function Back() {
-  //     setOffset(offset - 20);
-  //   }
 
   useEffect(() => {
     fetchData(BASE_URL);

@@ -230,14 +230,18 @@ h3, p, button {
 }
 
 .error{
-    margin-top: 100px;
 
     h1 {
         text-align: center;
+        font: x-large  'VT323', monospace;
+
+        span {
+            color: red
+        }
     }
 
     img {
-        height: 400px;
+        height: 350px;
         margin-top: 30px;
     }
 }

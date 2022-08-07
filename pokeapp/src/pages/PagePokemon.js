@@ -9,11 +9,17 @@ import Error from "../components/PagePokemon/Error";
 import Nav from "../components/Nav";
 import home from "../assets/statics/home-icon.jpg";
 
+const POKEMON_SEARCH_STATES = {
+  NOT_KNOWN: 0,
+  LOADING: 1,
+  SUCCES: 2,
+  ERROR: -1,
+};
+
 export default function PagePokemon() {
   let params = useParams();
   const [info, setInfo] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState(POKEMON_SEARCH_STATES.NOT_KNOWN);
 
   const POKEMON_URL = `https://pokeapi.co/api/v2/pokemon/${params.id}`;
 
@@ -23,15 +29,12 @@ export default function PagePokemon() {
       .then((response) => {
         const data = response.data;
         setInfo(data);
-        setLoading(false);
-        setError(false);
+        setStatus(POKEMON_SEARCH_STATES.LOADING);
       })
+      .then(() => setStatus(POKEMON_SEARCH_STATES.SUCCES))
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          setError(true);
-          setLoading(true);
+          setStatus(POKEMON_SEARCH_STATES.ERROR);
         }
       });
   };
@@ -48,12 +51,14 @@ export default function PagePokemon() {
         </Link>
         <Nav />
       </div>
-      {error && <Error />}
-      {loading ? (
+      {status === POKEMON_SEARCH_STATES.ERROR && <Error search={params.id} />}
+      {status === POKEMON_SEARCH_STATES.LOADING && (
         <div className="centrar">
           <Spinner />
         </div>
-      ) : (
+      )}
+
+      {status === POKEMON_SEARCH_STATES.SUCCES && (
         <div className="container centrar">
           <h1 className="pokemon-name">
             {info.name} n° {info.id}

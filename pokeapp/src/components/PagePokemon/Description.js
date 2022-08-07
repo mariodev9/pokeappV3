@@ -12,6 +12,7 @@ export default function Description(props) {
   const fetchDescription = (url) => {
     axios.get(url).then((response) => {
       const data = response.data;
+      // Find english description
       for (let i = 0; i < data.flavor_text_entries.length; i++) {
         if (data.flavor_text_entries[i].language.name === "en") {
           setDescription(data.flavor_text_entries[i].flavor_text);

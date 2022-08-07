@@ -29,10 +29,10 @@ export default function Nav() {
           name="busqueda"
           type="text"
           value={busqueda}
-          placeholder="Name or id"
+          placeholder="Nombre o id"
           onChange={handleChange}
         />
-        <button type="submit">search</button>
+        <button type="submit">Buscar</button>
       </form>
     </motion.div>
   );
